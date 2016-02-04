@@ -1,0 +1,11 @@
+<template name="layout">
+
+	{{>navigation}}
+
+  <div class="container" id="mainDiv">
+   {{#transition in=randomTransition}}
+  	 {{>yield}}
+   {{/transition}}
+
+  </div>
+</template>

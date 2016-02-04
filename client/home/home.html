@@ -1,0 +1,51 @@
+<template name="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+      {{# if Template.subscriptionsReady}} 
+        {{#each work}}
+        <div class="jumbotron">
+          <h4>{{name}}</h4>
+          <h5>{{client}}</h5>
+          <div class="row">
+            <div class="col-sm-5 bottom-space">
+              <p>
+                {{#if link}}
+                <a href="{{link}}" target="_blank">
+                  <img src="{{images.[0]}}" class="img-responsive img-jumbo" />
+                </a>
+                {{else}}
+                <img src="{{images.[0]}}" class="img-responsive img-jumbo" />
+                {{/if}}
+              </p>
+            </div>
+            <div class="col-sm-7">
+              <p class="story-text">{{story}}</p>
+              <p>
+               {{#if link}}
+                <a href="{{link}}" target="_blank">
+                  {{type}}
+                </a>
+                {{/if}}
+              </p>
+            </div>
+          </div>
+          <div class="row tech-div">
+            <div class="col-md-12">
+              <p>
+                {{>tech}}
+              </p>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
+<template name="tech">
+  {{#each tech}}
+  <span class="label label-primary pull-left">{{this}}</span>
+  {{/each}}
+</template>

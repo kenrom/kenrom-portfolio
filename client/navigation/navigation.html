@@ -1,0 +1,31 @@
+<template name="navigation">
+  <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <div class="navbar-header row">
+        <a class="navbar-brand" href="/">Ken Romero - Front-End Engineer</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="{{isActiveRoute 'home'}}" data-toggle="collapse" data-target=".navbar-collapse"><a href="{{pathFor'home'}}">Work</a>
+          </li>
+          <li class="{{isActiveRoute 'skills'}}" data-toggle="collapse" data-target=".navbar-collapse"><a href="{{pathFor 'skills'}}">Skillset</a>
+          </li>
+          <li data-toggle="collapse" data-target=".navbar-collapse"><a href="http://www.linkedin.com/in/kenromero" target="_blank">Profile</a>
+          </li>
+          <li class="{{isActiveRoute 'cv'}}" data-toggle="collapse" data-target=".navbar-collapse"><a href="{{pathFor'cv'}}">CV</a>
+          </li>
+          <!-- <li class="{{isActiveRoute 'contact'}}" data-toggle="collapse" data-target=".navbar-collapse"><a href="{{pathFor'contact'}}">Contact</a>
+          </li> -->
+          <li class="{{isActiveRoute 'lab'}}" data-toggle="collapse" data-target=".navbar-collapse"><a href="{{pathFor'lab'}}">Lab</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

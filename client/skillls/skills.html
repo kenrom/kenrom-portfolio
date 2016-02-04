@@ -1,0 +1,56 @@
+<template name="skills">
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 container-fluid">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-sm-6">
+              <h3>Skillset</h3>
+            </div>
+            <div class="col-sm-6 pull-right">
+            <p>
+              <div class="js-sorts js-button-group sorts button-group pull-right">
+                  <button type="button" id="btnOrig" class="button btn-xs btn-info is-checked" data-sort-by="original-order">Original</button>
+                  <button type="button" id="btnAlpha" class="button btn-xs btn-info" data-sort-by="name"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Alpha</button>
+                  <button type="button" id="btnSkill" class="button btn-xs btn-info" data-sort-by="number"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Level</button>
+                  <button type="button" id="btnSkill" class="button btn-xs btn-info" data-sort-by="random"><span class="glyphicon glyphicon-random"></span> Random</button>
+              </div>
+            <span class="pull-right"> Sort by: </span></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 animate">
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" style="width: 25%">
+                  BASIC
+                </div>
+                <div class="progress-bar progress-bar-warning" style="width: 25%">
+                  INTERMEDIATE
+                </div>
+                <div class="progress-bar progress-bar-info" style="width: 25%">
+                  ADVANCED
+                </div>
+                <div class="progress-bar progress-bar-success" style="width: 25%">
+                  EXPERT
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Skills Start - See if moving this to a template makes animation smoother...-->
+          <div id="isotope">
+          {{# if Template.subscriptionsReady}} 
+            {{#each skills}}
+            <div class="progress">
+              <div class="js-skill-bar skill-bar element-item-{{barType}}" data-value="{{value}}" data-name="{{name}}" style="width: {{value}}%">
+                {{name}}
+              </div>
+            </div>
+            {{/each}}
+          {{/if}}
+          </div>
+          <!-- Skills End -->
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
