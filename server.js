@@ -177,6 +177,10 @@ if (Meteor.isServer) {
         "value": 43
   },
       {
+        "name": "NPM, Grunt, Bower, Yeoman",
+        "value": 35
+  },
+      {
         "name": "JQuery",
         "value": 60
   },
