@@ -1,4 +1,4 @@
-Werks = new Mongo.Collection("work"); // Create a collection for my work data
+Werks = new Mongo.Collection("work"); // create a collection for my work data
 
 Skillz = function (document) {
   _.extend(this, document) // Underscore's extend function used copy the raw Skills collection
@@ -21,18 +21,17 @@ Skillz.prototype = {
   }
 };
 
-Skills = new Mongo.Collection("skill", { // Create a collection for my skills data with a 
-  transform: function (document) { // transform method that returns a modified copy of the cursor
+Skills = new Mongo.Collection("skill", { // creates a map my original skills with a 
+  transform: function (document) { // transform method that returns a copy of the cursor
     return new Skillz(document); // with a calculated barType property (used in view template)
   }
 });
 
 
-
 if (Meteor.isClient) {
 
-  Template.layout.helpers({
-    randomTransition: function () {
+  Template.layout.helpers({          // when loaded, applies a random transition to the app 
+    randomTransition: function () {  // from an array of transitions 
      var randomArray = ['rollIn','lightSpeedIn', 'fadeInDownBig', 'bounceIn', 'fadeIn'],
      randomX = _.sample(randomArray);
 
@@ -42,36 +41,30 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.navigation.events({
-    'click': function (event) {
-      console.log(event.target + " clicked in Nav");
-
-    }
-  });
 
   Template.home.helpers({
-    'work': function () {
+    'work': function () { // returns a cursor for work 
       data = Werks.find().fetch();
       return data;
     }
   });
 
 
-  Meteor.startup(function () {
+  Meteor.startup(function () {  // initializes Session variables
     Session.set("resize", null);
     Session.set("randomTransition", null);
 
   });
 
   Template.body.resized = function () {
-    return Session.get('resize');
+    return Session.get('resize'); // triggers a resize of the D3 SVG viewport to match the window size
   };
 
-Template.layout.rendered = function () {
-    return Session.get('randomTransition');
+Template.layout.rendered = function () {  // gets the random transition once the screen and its data has been rendered
+    return Session.get('randomTransition'); 
   };
 
-  Template.skills.helpers({
+  Template.skills.helpers({  // returns a cursor for skills
     'skills': function () {
       data = Skills.find({}).fetch();
       return data;
@@ -82,7 +75,7 @@ Template.layout.rendered = function () {
   Template.skills.rendered = function () {
     if (!this._rendered) {
 
-      // init Isotope
+      // initializes Isotope sorting, once all skills are rendered 
       var $container = $('#isotope').isotope({
         itemSelector: '.js-skill-bar',
         layoutMode: 'vertical',

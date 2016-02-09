@@ -119,7 +119,7 @@ if (Meteor.isServer) {
         }, {
           "name": "Custom Built Cabinetry Incorporated",
           "client": "Custom Built Cabinetry Incorporated",
-          "type": "Small Business Flash Web Site",
+          "type": "Small Business Responsive Site integrated with Flickr",
           "tech": ["HTML", "Javascript", "JQuery", "JQueryUI", "Flash", "CSS3", "Canon GL2", "Final Cut Pro", "Google Maps API", "Flickr Gallery API", "Photoshop"],
           "story": "Custom Built Cabinetry Incorporated is an example of a small business site I designed and produced with the specific intention of enabling my client (who is not technically inclined) to easily keep their portfolio of work updated. The site itself is conceived as a responsive Bootstrap/Flickr mashup, using a widget called 'FlickrIt'  to pull content from a Flickr photo account, and has worked out as an ideal solution for my client.",
           "link": "http://cbckailua.com/",
