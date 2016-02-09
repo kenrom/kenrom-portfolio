@@ -253,6 +253,10 @@ if (Meteor.isServer) {
         "value": 55
   },
       {
+        "name": "KnockoutJS",
+        "value": 28
+  },
+      {
         "name": "XML",
         "value": 50
   },
