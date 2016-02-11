@@ -24,7 +24,7 @@ if (Meteor.isServer) {
 
 
   Meteor.startup(function () {
-    if (Werks.find().count() == 0) {
+    if (Werks.find().count() === 0) {
       var job = [
         {
           "name": "Verizon Wireless",
